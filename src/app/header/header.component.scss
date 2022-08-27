@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 120px;
+  background-color: #A6D1E6;
+
+  &__usd-rate,
+  &__eur-rate,
+  &__title {
+    color: #3D3C42;
+  }
+
+  &__rates {
+    display: flex;
+    align-items: center;
+    gap: 115px;
+   }
+}
+
+.col {
+  color: red;
+}

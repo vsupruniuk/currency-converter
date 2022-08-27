@@ -1,19 +1,5 @@
 {
   "root": true,
-  "sort-imports": ["error", {
-    "ignoreCase": false,
-    "ignoreDeclarationSort": true,
-    "ignoreMemberSort": false,
-    "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-    "allowSeparatedGroups": false
-  }],
-  "comma-dangle": ["error", {
-    "arrays": "always-multiline",
-    "objects": "always-multiline",
-    "imports": "always-multiline",
-    "exports": "always-multiline",
-    "functions": "always-multiline"
-  }],
   "ignorePatterns": [
     "projects/**/*"
   ],
@@ -56,12 +42,19 @@
           "error",
           {
             "ignoreCase": false,
-            "ignoreDeclarationSort": false,
+            "ignoreDeclarationSort": true,
             "ignoreMemberSort": false,
             "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
             "allowSeparatedGroups": false
           }
-        ]
+        ],
+        "comma-dangle": ["error", {
+          "arrays": "only-multiline",
+          "objects": "only-multiline",
+          "imports": "only-multiline",
+          "exports": "only-multiline",
+          "functions": "never"
+        }]
       }
     },
     {
