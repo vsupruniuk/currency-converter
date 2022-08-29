@@ -1,7 +1,7 @@
 <header class="header">
   <h1 class="header__title">Currency converter</h1>
   <div class="header__rates">
-    <h2 class="header__usd-rate">USD: {{usdRate}}</h2>
-    <h2 class="header__eur-rate">EUR: {{eurRate}}</h2>
+    <h2 class="header__usd-rate">USD: {{usdRate | currencyPipe}}</h2>
+    <h2 class="header__eur-rate">EUR: {{eurRate | currencyPipe}}</h2>
   </div>
 </header>

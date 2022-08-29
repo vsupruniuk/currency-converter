@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   eurRate = 0;
   timerId = setInterval(() => {}, 0);
 
-  ngOnInit() {
+  getCurrencyRate() {
     this.currencyService
       .convertCurrency('USD', 'UAH', 1)
       .subscribe((rate) => (this.usdRate = rate.result.rate));
@@ -22,18 +22,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.currencyService
       .convertCurrency('EUR', 'UAH', 1)
       .subscribe((rate) => (this.eurRate = rate.result.rate));
+  }
+
+  ngOnInit() {
+    this.getCurrencyRate();
 
     this.timerId = setInterval(() => {
-      this.currencyService
-        .convertCurrency('USD', 'UAH', 1)
-        .subscribe((rate) => (this.usdRate = rate.result.rate));
-
-      this.currencyService
-        .convertCurrency('EUR', 'UAH', 1)
-        .subscribe((rate) => (this.eurRate = rate.result.rate));
-
-      // eslint-disable-next-line no-undef
-      console.log('new request');
+      this.getCurrencyRate();
     }, 60000);
   }
 

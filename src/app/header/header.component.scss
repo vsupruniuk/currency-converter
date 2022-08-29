@@ -5,8 +5,8 @@
   padding: 15px 120px;
   background-color: #A6D1E6;
 
-  &__usd-rate,
   &__eur-rate,
+  &__usd-rate,
   &__title {
     color: #3D3C42;
   }
@@ -16,8 +16,4 @@
     align-items: center;
     gap: 115px;
    }
-}
-
-.col {
-  color: red;
 }
