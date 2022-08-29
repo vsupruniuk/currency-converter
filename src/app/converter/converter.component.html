@@ -1,43 +1,52 @@
 <div class="converter">
-  <h1>Convert currency</h1>
-  <div class="converter__from">
-    <h3>From: </h3>
+  <h1 class="converter__title">Convert currency</h1>
+  <div class="converter__inputs">
+    <h2 class="converter__title">From: </h2>
 
-    <input
-      class="converter__from-value"
-      type="number"
-      [value]="fromCurrencyValue | currencyPipe"
-      (change)="changeFromCurrencyValue($event)"
-    >
-
-    <select (change)="changeFromCurrencyName($event)">
-      <option
-        *ngFor="let currency of currencyList"
-        [value]="currency"
-        [selected]="currency === fromCurrencyName"
+    <div class="converter__from">
+      <input
+        class="converter__currency-value"
+        type="number"
+        [value]="fromCurrencyValue | currencyPipe"
+        (keydown)="changeFromCurrencyValue($event)"
       >
-        {{currency}}
-      </option>
-    </select>
-  </div>
 
-  <div class="converter__to">
-    <h3>To: </h3>
-    <input
-      class="converter__to-value"
-      type="number"
-      [value]="toCurrencyValue | currencyPipe"
-      (change)="changeToCurrencyValue($event)"
-    >
-
-    <select (change)="changeToCurrencyName($event)">
-      <option
-        *ngFor="let currency of currencyList"
-        [value]="currency"
-        [selected]="currency === toCurrencyName"
+      <select
+        class="converter__currency-name"
+        (change)="changeFromCurrencyName($event)"
       >
-        {{currency}}
-      </option>
-    </select>
+        <option
+          *ngFor="let currency of currencyList"
+          [value]="currency"
+          [selected]="currency === fromCurrencyName"
+        >
+          {{currency}}
+        </option>
+      </select>
+    </div>
+
+    <h2 class="converter__title">To: </h2>
+
+    <div class="converter__to">
+      <input
+        class="converter__currency-value"
+        type="number"
+        [value]="toCurrencyValue | currencyPipe"
+        (keydown)="changeToCurrencyValue($event)"
+      >
+
+      <select
+        class="converter__currency-name"
+        (change)="changeToCurrencyName($event)"
+      >
+        <option
+          *ngFor="let currency of currencyList"
+          [value]="currency"
+          [selected]="currency === toCurrencyName"
+        >
+          {{currency}}
+        </option>
+      </select>
+    </div>
   </div>
 </div>

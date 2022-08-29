@@ -19,12 +19,14 @@ export class ConverterComponent implements OnInit {
 
   changeFromCurrencyValue(event: Event) {
     const { value } = event.target as HTMLInputElement;
+
     this.fromCurrencyValue = Number(value);
     this.toCurrencyValue = Number(value) * this.currencyRate;
   }
 
   changeFromCurrencyName(event: Event) {
     const { value } = event.target as HTMLSelectElement;
+
     this.fromCurrencyName = value;
 
     this.currencyService
@@ -37,12 +39,14 @@ export class ConverterComponent implements OnInit {
 
   changeToCurrencyValue(event: Event) {
     const { value } = event.target as HTMLInputElement;
+
     this.toCurrencyValue = Number(value);
     this.fromCurrencyValue = Number(value) / this.currencyRate;
   }
 
   changeToCurrencyName(event: Event) {
     const { value } = event.target as HTMLSelectElement;
+
     this.toCurrencyName = value;
 
     this.currencyService
