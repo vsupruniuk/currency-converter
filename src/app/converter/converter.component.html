@@ -1,0 +1,52 @@
+<div class="converter">
+  <h1 class="converter__title">Convert currency</h1>
+  <div class="converter__inputs">
+    <h2 class="converter__title">From: </h2>
+
+    <div class="converter__from">
+      <input
+        class="converter__currency-value"
+        type="number"
+        [value]="fromCurrencyValue | currencyPipe"
+        (keydown)="changeFromCurrencyValue($event)"
+      >
+
+      <select
+        class="converter__currency-name"
+        (change)="changeFromCurrencyName($event)"
+      >
+        <option
+          *ngFor="let currency of currencyList"
+          [value]="currency"
+          [selected]="currency === fromCurrencyName"
+        >
+          {{currency}}
+        </option>
+      </select>
+    </div>
+
+    <h2 class="converter__title">To: </h2>
+
+    <div class="converter__to">
+      <input
+        class="converter__currency-value"
+        type="number"
+        [value]="toCurrencyValue | currencyPipe"
+        (keydown)="changeToCurrencyValue($event)"
+      >
+
+      <select
+        class="converter__currency-name"
+        (change)="changeToCurrencyName($event)"
+      >
+        <option
+          *ngFor="let currency of currencyList"
+          [value]="currency"
+          [selected]="currency === toCurrencyName"
+        >
+          {{currency}}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
