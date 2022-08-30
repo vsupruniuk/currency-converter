@@ -11,7 +11,7 @@ export class CurrencyService {
   constructor(private http: HttpClient) {}
 
   BASE_URL = 'https://api.fastforex.io';
-  API_KEY = 'fbef6733b2-1369fe6da8-rh820r';
+  API_KEY = 'ab70f5588b-c85e2345e0-rhfafn';
 
   getAllCurrencies() {
     const { BASE_URL, API_KEY } = this;
