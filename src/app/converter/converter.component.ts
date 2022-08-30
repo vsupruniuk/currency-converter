@@ -9,6 +9,29 @@ import { CurrencyService } from '../services/currency.service';
 export class ConverterComponent implements OnInit {
   constructor(public currencyService: CurrencyService) {}
 
+  targetCurrencies = [
+    'USD',
+    'EUR',
+    'UAH',
+    'JPY',
+    'GBP',
+    'AUD',
+    'CAD',
+    'CHF',
+    'CNY',
+    'HKD',
+    'NZD',
+    'SEK',
+    'KRW',
+    'SGD',
+    'PLN',
+    'DKK',
+    'NOK',
+    'MXN',
+    'INR',
+    'TRY'
+  ];
+
   currencyList: string[] = [];
   currencyRate = 0;
   fromCurrencyValue = 100;
@@ -20,7 +43,12 @@ export class ConverterComponent implements OnInit {
     const { value } = event.target as HTMLInputElement;
 
     this.fromCurrencyValue = Number(value);
-    this.toCurrencyValue = Number(value) * this.currencyRate;
+
+    if (Number(value) < 0) {
+      this.toCurrencyValue = 0;
+    } else {
+      this.toCurrencyValue = Number(value) * this.currencyRate;
+    }
   }
 
   changeFromCurrencyName(event: Event) {
@@ -40,7 +68,12 @@ export class ConverterComponent implements OnInit {
     const { value } = event.target as HTMLInputElement;
 
     this.toCurrencyValue = Number(value);
-    this.fromCurrencyValue = Number(value) / this.currencyRate;
+
+    if (Number(value) < 0) {
+      this.fromCurrencyValue = 0;
+    } else {
+      this.fromCurrencyValue = Number(value) / this.currencyRate;
+    }
   }
 
   changeToCurrencyName(event: Event) {
@@ -52,14 +85,16 @@ export class ConverterComponent implements OnInit {
       .convertCurrency(this.fromCurrencyName, value, 1)
       .subscribe((currencies) => {
         this.currencyRate = currencies.result.rate;
-        this.fromCurrencyValue = this.toCurrencyValue * currencies.result.rate;
+        this.fromCurrencyValue = this.toCurrencyValue / currencies.result.rate;
       });
   }
 
   ngOnInit() {
     this.currencyService.getAllCurrencies().subscribe((currencies) => {
       for (const currency in currencies.currencies) {
-        this.currencyList.push(currency);
+        if (this.targetCurrencies.includes(currency)) {
+          this.currencyList.push(currency);
+        }
       }
     });
 
