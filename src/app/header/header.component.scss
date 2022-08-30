@@ -2,8 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 120px;
+  padding: 15px 15px;
   background-color: #A6D1E6;
+
+  @media (min-width: 768px) {
+    padding: 15px 120px;
+  }
 
   &__eur-rate,
   &__usd-rate,
@@ -14,6 +18,10 @@
   &__rates {
     display: flex;
     align-items: center;
-    gap: 115px;
-   }
+    gap: 15px;
+
+    @media (min-width: 768px) {
+      gap: 115px;
+    }
+  }
 }
