@@ -28,5 +28,5 @@
    - Well thought out interface and appearance
    - Clean code
 
-### To implement use
+### To implement use:
    - ReactJS or Angular 2+
