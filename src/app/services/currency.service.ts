@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CurrenciesApi } from '../../types/Currencies';
