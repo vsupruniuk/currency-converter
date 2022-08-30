@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars,no-undef */
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CurrencyService } from '../services/currency.service';
 
